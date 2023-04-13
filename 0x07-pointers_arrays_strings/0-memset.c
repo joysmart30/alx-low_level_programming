@@ -5,16 +5,16 @@
  * @b: the desired value
  * @n: number of bytes to be changed
  *
- * Return: changed array with new value for n bytes
+ * Return: A pointer to the filled memory area @s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	int i = 0;
+	unsigned int index;
 
-	for (; n > 0; i++)
-	{
-		s[i] = b;
-		n--;
-	}
-	return (s);
+	char *memory = s, value = b;
+
+	for (index = 0; index < n; index++)
+		memory[index] = value;
+
+	return (memory);
 }
