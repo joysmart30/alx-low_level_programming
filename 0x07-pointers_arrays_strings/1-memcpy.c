@@ -15,8 +15,11 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	char *destination = dest;
 	char *source = src;
 
-	for (index = 0; index < n; index++)
-		destination[index] = source[index];
+	for (index = 0; scr[index] != '\0' && index < n; index++)
+	{
+
+		dest[index] = src[index];
+	}
 
 	return (dest);
 }
