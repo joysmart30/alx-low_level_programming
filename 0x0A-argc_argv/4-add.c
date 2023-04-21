@@ -7,29 +7,22 @@
  *
  * Return: 0
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int i, n, sum = 0;
-	char *flag;
+	int num, digit, sum = 0;
 
-	if (argc < 2)
+	for (num = 1; num < argc; num++)
 	{
-		printf("0\n");
-		return (0);
-	}
+		for (digit = 0; argv[num][digit]; digit++)
+		{
+			if (argv[num][digit] < '0' || argv[num][digit] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
 
-	for (i = 1; argv[i]; i++)
-	{
-		n = strtol(argv[i], &flag, 10);
-		if (*flag)
-		{
-			printf("Error\n");
-			return (1);
-		}
-		else
-		{
-			sum += n;
-		}
+		sum += atoi(argv[num]);
 	}
 	printf("%d\n", sum);
 
