@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-
 /**
  * argstostr - concatenates all the arguments of your program.
  * @ac: arguments count
@@ -10,42 +9,40 @@
  */
 char *argstostr(int ac, char **av)
 {
-
-	char *str, *s;
-	int i, j, k, len = 0;
-
-	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (i = 0 i < ac; i++)
 	{
-		s = av[i];
-		j = 0
+	char *aout;
+	int c, i, j, ia;
 
-			while (s[j++])
-				len++;
-		len++;
+	if (ac == 0)
+		return (NULL);
+	for (c = i = 0; i < ac; i++)
+	{
+		if (av[i] == NULL)
+			return (NULL);
+
+		for (j = 0; av[i][j] != '\0'; j++)
+			c++;
+		c++;
 	}
+	aout = malloc((c + 1) * sizeof(char));
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0, j = 0; i < ac && j < ; len; i++)
+	if (aout == NULL)
 	{
-
-		s = av[i];
-		k = 0;
-
-		while (s[k])
+		free(aout);
+		return (NULL);
+	}
+	for (i = j = ia = 0; ia < c; j++, ia++)
+	{
+		if (av[i][j] == '\0')
 		{
-			str[j] = s[k];
-			k++;
-			j++;
+			aout[ia] = '\n';
+			i++;
+			ia++;
+			j = 0;
 		}
-		str[j++] = '\n';
+		if (ia < c - 1)
+			aout[ia] = av[i][j];
 	}
-	str[j] = '\0';
-
-	return (str);
+	aout[ia] = '\0';
+	return (aout);
 }
