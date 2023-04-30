@@ -8,9 +8,9 @@
  * struct listint_s - singly linked list
  * @n: integer
  * @next: points to the next node
- * created by Chukwudike Igwe
+ * 
  * Description: singly linked list node structure
- * for alx project
+ * 
  */
 typedef struct listint_s
 {
